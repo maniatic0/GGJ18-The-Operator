@@ -6,6 +6,8 @@ public class RopeGenerator : MonoBehaviour {
 
     public Transform Node;
     public Transform baseConnector;
+    public Transform endConnector;
+
     public int nbrOfSegments = 10;
     public int length = 10;
 	// Use this for initialization
@@ -54,9 +56,20 @@ public class RopeGenerator : MonoBehaviour {
             }
             else if (i == childCount - 1)
             {
-                //Dont connect last node
+                //connect last node to end hinge
+                node.transform.position = endConnector.transform.position;
+
                 Rigidbody rigidbody = node.GetChild(0).GetComponent<Rigidbody>();
+                rigidbody.transform.position = endConnector.transform.position;
                 rigidbody.isKinematic = true;
+
+                rigidbody = endConnector.GetComponent<Rigidbody>();
+                node.GetChild(0).GetComponent<SpringJoint>().connectedBody = rigidbody;
+                rigidbody.isKinematic = true;
+
+
+                FollowScript fs = node.GetChild(0).gameObject.AddComponent<FollowScript>();
+                fs.followTransform = endConnector;
             }
             else
             {
