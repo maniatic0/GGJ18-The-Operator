@@ -210,8 +210,8 @@ MonoBehaviour:
   ropeLength: 1
   minRopeLength: 0.01
   maxRopeLength: 1000
-  loadMass: 20
-  drag: 20
+  loadMass: 1
+  drag: 2
 --- !u!120 &120739920454885104
 LineRenderer:
   m_ObjectHideFlags: 1
