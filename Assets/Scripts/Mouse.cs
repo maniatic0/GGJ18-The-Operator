@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(AudioSource))]
 public class Mouse : MonoBehaviour {
 
     LineRenderer line;
@@ -14,10 +15,15 @@ public class Mouse : MonoBehaviour {
     public Transform main_board;
     public bool show_line = true;
 
+    public AudioClip plug_in_sound;
+    public AudioClip plug_out_sound;
+    private AudioSource audioSource;
+
     private Plug picked_plug;
     // Use this for initialization
     void Start () {
         line = GetComponent<LineRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -82,7 +88,11 @@ public class Mouse : MonoBehaviour {
             if (!picked_plug.Disconnect())
             {
                 picked_plug = null;
-            }            
+            }
+            else
+            {
+                audioSource.PlayOneShot(plug_in_sound);
+            }
         }
     }
 
@@ -100,6 +110,7 @@ public class Mouse : MonoBehaviour {
         picked_plug.transform.position = con.transform.position - main_board.forward * plug_distance;
         picked_plug.Connect(con);
         picked_plug = null;
+        audioSource.PlayOneShot(plug_out_sound);
     }
 }
 
