@@ -259,7 +259,7 @@ public class CallScript : MonoBehaviour
                 comingFrom = 17;
                 callingTo = 5;
                 intro = " Mom: Hello, can you put me through to my son in the fifth district?\n";
-                converstaion = " Mom: Hello son, this is mama. How’ve you been? Are you going to pick up your sister today?\nSon: Everything good here.Yes!I will!Stop breathing down my neck, mother *sigh * \n";
+                converstaion = " Mom: Hello son, this is mama. How’ve you been? Are you going to pick up your sister today?\nSon: Everything good here. Yes!I will!Stop breathing down my neck, mother *sigh * \n";
                 consequences[0] = 0;
                 consequences[1] = 0;
                 consequences[2] = -2;
