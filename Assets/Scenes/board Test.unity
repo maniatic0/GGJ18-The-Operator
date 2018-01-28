@@ -2850,7 +2850,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 94
+  m_Constraints: 110
   m_CollisionDetection: 0
 --- !u!23 &649825140
 MeshRenderer:
@@ -4377,12 +4377,12 @@ Prefab:
     - target: {fileID: 54398176444957712, guid: b19cc23626870a149a2b6bab1564e51f,
         type: 2}
       propertyPath: m_Constraints
-      value: 94
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 54918933648995430, guid: b19cc23626870a149a2b6bab1564e51f,
         type: 2}
       propertyPath: m_Constraints
-      value: 94
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 54918933648995430, guid: b19cc23626870a149a2b6bab1564e51f,
         type: 2}
@@ -5403,7 +5403,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   main_board: {fileID: 1160146583}
-  show_line: 1
+  show_line: 0
   plug_in_sound: {fileID: 8300000, guid: bff277f0fdd7ff6499ec118d25be9b23, type: 3}
   plug_out_sound: {fileID: 8300000, guid: 646ead8e72861ff4f866c095fb3912bf, type: 3}
 --- !u!4 &1437187133
