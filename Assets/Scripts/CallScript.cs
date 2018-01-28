@@ -237,7 +237,7 @@ public class CallScript : MonoBehaviour
                 comingFrom = 9;
                 callingTo = 14;
                 intro = " GOVERNMENT OFFICIAL: Put me on with the president! \n";
-                converstaion = " GOVERNMENT OFFICIAL: Mr. President, I have very bad news sir. People are getting ready for a big march against you. What do you want us to do?\nPRECIDENT: Activate Plan “sipping saucer”. I want the army and the national guard on the street.I want them dispersed right away!Those traitors will not get close to us.Tell them to use as much force as required and to get the reporters away.";
+                converstaion = " GOVERNMENT OFFICIAL: Mr. President, I have very bad news sir. People are getting ready for a big march against you. What do you want us to do?\nPRESIDENT: Activate Plan “sipping saucer”. I want the army and the national guard on the street. Tell them to use as much force as required and to get the reporters away.";
                 consequences[0] = 3;
                 consequences[1] = 3;
                 consequences[2] = -2;
@@ -259,7 +259,7 @@ public class CallScript : MonoBehaviour
                 comingFrom = 12;
                 callingTo = 9;
                 intro = " MAFIA HENCHMAN: Put me through to the 9th district - NOW! \n";
-                converstaion = " MAFIA HENCHMAN: Boss, the target has been silenced\nBOS: Good job, be ready for your next assignment\n";
+                converstaion = " MAFIA HENCHMAN: Boss, the target has been silenced\nBOSS: Good job, be ready for your next assignment\n";
                 consequences[0] = 4;
                 consequences[1] = 3;
                 consequences[2] = -3;
