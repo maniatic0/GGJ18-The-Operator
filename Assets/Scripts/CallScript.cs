@@ -213,8 +213,8 @@ public class CallScript : MonoBehaviour
 
                 comingFrom = 8;
                 callingTo = 10;
-                intro = " rebel: Can you put me through to district 10, fast!\n";
-                converstaion = " rebel: Eagle here! We need to protect ourselves with fireworks. Go get it from David, he has the delivery ready!\nRebel 2: understood eagle!";
+                intro = " Rebel: Can you put me through to district 10, fast!\n";
+                converstaion = " Rebel: Eagle here! We need to protect ourselves with fireworks. Go get it from David, he has the delivery ready!\nRebel 2: understood eagle!";
                 consequences[0] = -4;
                 consequences[1] = 4;
                 consequences[2] = 2;
@@ -247,7 +247,7 @@ public class CallScript : MonoBehaviour
                 comingFrom = 12;
                 callingTo = 9;
                 intro = " Mafia Henchman: Put me through to the 9th district - NOW! \n";
-                converstaion = "Mafia henchman: boss, the target has been silenced\nBoss: good job, be ready for your next assignment\n";
+                converstaion = " Mafia henchman: boss, the target has been silenced\nBoss: good job, be ready for your next assignment\n";
                 consequences[0] = 4;
                 consequences[1] = 3;
                 consequences[2] = -3;
