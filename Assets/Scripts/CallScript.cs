@@ -44,6 +44,9 @@ public class CallScript : MonoBehaviour
     bool checkForConnection = false;
     bool checkForConnectionType = false;
 
+    //END TEST
+    public GameObject end_object;
+
 
 
     public void Start()
@@ -188,6 +191,10 @@ public class CallScript : MonoBehaviour
 
         switch (call)
         {
+
+            case 7:
+                end_object.SendMessage("End", score);
+                break;
             case 6:
 
                 comingFrom = 6;
