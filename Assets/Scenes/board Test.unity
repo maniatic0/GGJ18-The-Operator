@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationText: {fileID: 111488949}
-  callTimeStart: 4
+  callTimeStart: 6
   waitTimeStart: 6
   callActive: 0
   answerButton: {fileID: 596488190}

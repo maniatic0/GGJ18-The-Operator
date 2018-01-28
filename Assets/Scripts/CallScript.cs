@@ -73,6 +73,7 @@ public class CallScript : MonoBehaviour
             light2.GetComponent<MoveLightScript>().DisableLight();
             callActive = false;
             waitTime = waitTimeStart;
+            clearTextBox();
         }
         if (!activeCall)
         {
@@ -247,7 +248,7 @@ public class CallScript : MonoBehaviour
                 comingFrom = 12;
                 callingTo = 9;
                 intro = " Mafia Henchman: Put me through to the 9th district - NOW! \n";
-                converstaion = " Mafia henchman: boss, the target has been silenced\nBoss: good job, be ready for your next assignment\n";
+                converstaion = " Mafia henchman: Boss, the target has been silenced\nBoss: Good job, be ready for your next assignment\n";
                 consequences[0] = 4;
                 consequences[1] = 3;
                 consequences[2] = -3;
@@ -273,6 +274,13 @@ public class CallScript : MonoBehaviour
         ringSound.enabled = true;
         //Debug.Log("calling from: " + comingFrom + ", to " + callingTo);
         checkingIncoming = true;
+
+    }
+
+    void clearTextBox()
+    {
+        myText = "";
+        conversationText.text = "";
 
     }
 
