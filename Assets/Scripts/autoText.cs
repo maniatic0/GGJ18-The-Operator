@@ -25,7 +25,7 @@ public class autoText : MonoBehaviour {
 
     IEnumerator StartTyping()
     {
-
+        introductionText.text = "";
         foreach (char letter in myText.ToCharArray())
         {
             sound.Play();
