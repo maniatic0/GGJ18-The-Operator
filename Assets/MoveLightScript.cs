@@ -30,7 +30,7 @@ public class MoveLightScript : MonoBehaviour {
                 if (connector != null && connector.Id == requestID)
                 {
                     light.enabled = true;
-                    light.transform.position = new Vector3(plug.transform.position.x, plug.transform.position.y + 0.9f, plug.transform.position.z);
+                    light.transform.position = new Vector3(plug.transform.position.x, plug.transform.position.y + 0.8f, plug.transform.position.z);
 
                 }
             }
