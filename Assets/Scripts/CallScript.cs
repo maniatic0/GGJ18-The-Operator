@@ -60,35 +60,36 @@ public class CallScript : MonoBehaviour
 
     public void Update()
     {
-        
+        if (callActive)
+            callTime -= 1 * Time.deltaTime;
+
         if (activeCall)
         {
-            if (callActive)
-                callTime -= 1 * Time.deltaTime;
+            waitTime = waitTimeStart;
+        }
+        if (callTime <= 0 && callActive)
+        {
+            light1.GetComponent<MoveLightScript>().DisableLight();
+            light2.GetComponent<MoveLightScript>().DisableLight();
+            callActive = false;
             waitTime = waitTimeStart;
         }
         if (!activeCall)
         {
             waitTime -= 1 * Time.deltaTime;
-            if (waitTime <= 0)
-            {
-                callTime = callTimeStart;
-            }
-            if (callTime <= 0)
-            {
-                light1.GetComponent<MoveLightScript>().DisableLight();
-                light2.GetComponent<MoveLightScript>().DisableLight();
-                callActive = false;
-            }
+            //if (waitTime <= 0)
+            //{
+            //    callTime = callTimeStart;
+            //}
+            
             if (waitTime <= 0)
             {
                 answerButton.interactable = true;
-                callTime = callTimeStart;
+                //callTime = callTimeStart;
 
                 if (!callActive)
                 {
                     ActivateCall();
-                    callActive = true;
                 }
             }
         }
@@ -133,6 +134,8 @@ public class CallScript : MonoBehaviour
             checkForConnection = false;
             checkForConnectionType = true;
             conversationText.text = "";
+            callActive = true;
+            callTime = callTimeStart;
         }
         else if (plug2.ConnectId == callingTo)
         {
@@ -141,6 +144,8 @@ public class CallScript : MonoBehaviour
             checkForConnection = false;
             checkForConnectionType = true;
             conversationText.text = "";
+            callActive = true;
+            callTime = callTimeStart;
         }
 
 
@@ -159,7 +164,6 @@ public class CallScript : MonoBehaviour
             conversationText.text = "";
             if (light2 != null)
                 light2.GetComponent<MoveLightScript>().MoveLight(callingTo);
-            callActive = true;
 
         }
         else if (plug2.ConnectId == comingFrom)
@@ -172,7 +176,6 @@ public class CallScript : MonoBehaviour
             conversationText.text = "";
             if (light2 != null)
                 light2.GetComponent<MoveLightScript>().MoveLight(callingTo);
-            callActive = true;
         }
 
     }
