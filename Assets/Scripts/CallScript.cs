@@ -18,6 +18,8 @@ public class CallScript : MonoBehaviour
     public Button answerButton;
     public int[] consequences = new int[3];
 
+    public GameObject light1, light2, light3;
+
     public float letterPause; //lenght of pause
     string myText; //text string you want to write - TODO: should have getter and setter
 
@@ -43,7 +45,7 @@ public class CallScript : MonoBehaviour
     {
 
         activeCall = false;
-   
+
     }
 
     public void Update()
@@ -51,10 +53,12 @@ public class CallScript : MonoBehaviour
         if (!activeCall)
         {
             answerButton.interactable = true;
-
+            light1.GetComponent<MoveLightScript>().DisableLight();
+            light2.GetComponent<MoveLightScript>().DisableLight();
+            // light3.GetComponent<MoveLightScript>().DisableLight();
         }
 
-        else if (checkingIncoming) {  checkIncomingLine();  }
+        else if (checkingIncoming) { checkIncomingLine(); }
         else if (checkForConnection) { checkOutputLine(); }
 
         else if (checkForConnectionType)
@@ -64,8 +68,20 @@ public class CallScript : MonoBehaviour
             activeCall = false;
         }
 
+        ListeningLight();
+    }
 
-
+    private void ListeningLight()
+    {
+        var input = listeningPlyg.ConnectId;
+        if (input == 1 || input == 2)
+        {
+            light3.GetComponent<MoveLightScript>().MoveLight(input);
+        }
+        else
+        {
+            light3.GetComponent<MoveLightScript>().DisableLight();
+        }
     }
 
     private void checkOutputLine()
@@ -89,24 +105,14 @@ public class CallScript : MonoBehaviour
             checkForConnectionType = true;
             conversationText.text = "";
         }
-        
+
 
     }
 
     private void checkIncomingLine()
     {
-     
-            if (plug1.ConnectId == comingFrom)
-            {
-            myText = intro;
-            startTyping();
-            checkingIncoming = false;
-            checkForConnection = true;
-            myText = "";
-            conversationText.text = "";
 
-        }
-            else if (plug2.ConnectId == comingFrom)
+        if (plug1.ConnectId == comingFrom)
         {
             myText = intro;
             startTyping();
@@ -114,9 +120,22 @@ public class CallScript : MonoBehaviour
             checkForConnection = true;
             myText = "";
             conversationText.text = "";
+            if (light2 != null)
+                light2.GetComponent<MoveLightScript>().MoveLight(callingTo);
 
         }
-    
+        else if (plug2.ConnectId == comingFrom)
+        {
+            myText = intro;
+            startTyping();
+            checkingIncoming = false;
+            checkForConnection = true;
+            myText = "";
+            conversationText.text = "";
+            if (light2 != null)
+                light2.GetComponent<MoveLightScript>().MoveLight(callingTo);
+        }
+
     }
 
     public void Button_Clicked()
@@ -191,7 +210,7 @@ public class CallScript : MonoBehaviour
             case 1:
 
                 comingFrom = 17;
-                callingTo = 5; 
+                callingTo = 5;
                 intro = " Mom: Hello, can you put me through to my son in the fifth district?\n";
                 converstaion = " Mom: Hello son, this is mama. How’ve you been? Are you going to pick up your sister today?\nSon: Everything good here.Yes!I will!Stop breathing down my neck, mother *sigh * \n";
                 consequences[0] = 0;
@@ -202,7 +221,11 @@ public class CallScript : MonoBehaviour
 
         }
 
-        Debug.Log("calling from: " + comingFrom + ", to " + callingTo);
+        if (light1 != null)
+            light1.GetComponent<MoveLightScript>().MoveLight(comingFrom);
+
+
+        //Debug.Log("calling from: " + comingFrom + ", to " + callingTo);
         checkingIncoming = true;
 
     }
@@ -226,7 +249,7 @@ public class CallScript : MonoBehaviour
     }
 
 
- 
+
 
     private void checkConnectionType()
     {
@@ -245,10 +268,13 @@ public class CallScript : MonoBehaviour
             Debug.Log("rebels listening");
             score += consequences[2]; //Rebel
         }
-        else {
+        else
+        {
             Debug.Log("nothing listening");
             score += consequences[0]; //neutral
         }
+
+
     }
 
 }

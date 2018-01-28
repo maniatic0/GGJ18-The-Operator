@@ -13,7 +13,7 @@ public class MoveLightScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        MoveLight(6);
+        //MoveLight(6);
 	}
     public void MoveLight(int requestID)
     {
