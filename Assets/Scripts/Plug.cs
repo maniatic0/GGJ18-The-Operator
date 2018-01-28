@@ -9,6 +9,9 @@ public class Plug : MonoBehaviour
     public PlugConnector connectedTo;
     public bool locked = false;
 
+    int connectId = 0;
+    public int ConnectId { get { return connectId; } }
+
     public bool Disconnect()
     {
         if (locked)
@@ -22,6 +25,8 @@ public class Plug : MonoBehaviour
             connectedTo.Disconnect();
             connectedTo = null;
         }
+
+        connectId = 0;
         return true;
     }
 
@@ -31,5 +36,7 @@ public class Plug : MonoBehaviour
         cable.Connect(con);
         connectedTo = con;
         connectedTo.Connect(this);
+
+        connectId = con.Id;
     }
 }
