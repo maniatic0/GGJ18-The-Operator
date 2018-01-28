@@ -5321,22 +5321,22 @@ Prefab:
     - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 998.8
       objectReference: {fileID: 0}
     - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 1267.1
       objectReference: {fileID: 0}
     - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114286398077865940, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
@@ -5356,7 +5356,7 @@ Prefab:
     - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 150
+      value: -378
       objectReference: {fileID: 0}
     - target: {fileID: 224470422328467446, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
@@ -5371,7 +5371,7 @@ Prefab:
     - target: {fileID: 224470422328467446, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: 182
       objectReference: {fileID: 0}
     - target: {fileID: 114979578246530642, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
@@ -5381,7 +5381,7 @@ Prefab:
     - target: {fileID: 114070696644316566, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114070696644316566, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
@@ -5391,7 +5391,38 @@ Prefab:
     - target: {fileID: 114705712153695590, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 114705712153695590, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_Text
+      value: "The history has been rewritten today. After years of dictatorship, our
+        country is experiencing a new beginning. The uprising of the rebel forces
+        against the former government was successful. We had an interview with the
+        leader of the rebels forces. \\n\\tRebel Leader: \u201CThis wouldn\u2019t
+        be the result without the unknown hero working in front of the switch board.
+        If our calls where transfered to the government, we\u2019d be having the darkest
+        days. Feel the love transmitting from us to you - the hero!\u201D \\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114705712153695590, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 270.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224825423780828898, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcb7e1b9181ef45bd9dfe91efce153a0, type: 2}
