@@ -15,7 +15,12 @@ public class CallScript : MonoBehaviour
     private string intro, converstaion;
     private int callingTo = 0;
     private int comingFrom;
+    private float callTime, waitTime = 0f;
+    public float callTimeStart = 0f;
+    public float waitTimeStart = 5f;
+    public bool callActive = false;
     public Button answerButton;
+    private AudioSource ringSound;
     public int[] consequences = new int[3];
 
     public GameObject light1, light2, light3;
@@ -45,18 +50,47 @@ public class CallScript : MonoBehaviour
     {
 
         activeCall = false;
-
+        callTime = callTimeStart;
+        waitTime = waitTimeStart;
+        ringSound = this.GetComponent<AudioSource>();
     }
 
     public void Update()
     {
+        
+        if (activeCall)
+        {
+            if (callActive)
+                callTime -= 1 * Time.deltaTime;
+            waitTime = waitTimeStart;
+        }
         if (!activeCall)
         {
-            answerButton.interactable = true;
-            light1.GetComponent<MoveLightScript>().DisableLight();
-            light2.GetComponent<MoveLightScript>().DisableLight();
-            // light3.GetComponent<MoveLightScript>().DisableLight();
+            waitTime -= 1 * Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                callTime = callTimeStart;
+            }
+            if (callTime <= 0)
+            {
+                light1.GetComponent<MoveLightScript>().DisableLight();
+                light2.GetComponent<MoveLightScript>().DisableLight();
+                callActive = false;
+            }
+            if (waitTime <= 0)
+            {
+                answerButton.interactable = true;
+                callTime = callTimeStart;
+
+                if (!callActive)
+                {
+                    ActivateCall();
+                    callActive = true;
+                }
+            }
         }
+
+        
 
         else if (checkingIncoming) { checkIncomingLine(); }
         else if (checkForConnection) { checkOutputLine(); }
@@ -88,6 +122,7 @@ public class CallScript : MonoBehaviour
     {
 
 
+        ringSound.enabled = false;
         if (plug1.ConnectId == callingTo)
         {
             myText = converstaion;
@@ -95,7 +130,6 @@ public class CallScript : MonoBehaviour
             checkForConnection = false;
             checkForConnectionType = true;
             conversationText.text = "";
-
         }
         else if (plug2.ConnectId == callingTo)
         {
@@ -122,6 +156,7 @@ public class CallScript : MonoBehaviour
             conversationText.text = "";
             if (light2 != null)
                 light2.GetComponent<MoveLightScript>().MoveLight(callingTo);
+            callActive = true;
 
         }
         else if (plug2.ConnectId == comingFrom)
@@ -134,11 +169,12 @@ public class CallScript : MonoBehaviour
             conversationText.text = "";
             if (light2 != null)
                 light2.GetComponent<MoveLightScript>().MoveLight(callingTo);
+            callActive = true;
         }
 
     }
 
-    public void Button_Clicked()
+    public void ActivateCall()
     {
 
 
@@ -224,7 +260,7 @@ public class CallScript : MonoBehaviour
         if (light1 != null)
             light1.GetComponent<MoveLightScript>().MoveLight(comingFrom);
 
-
+        ringSound.enabled = true;
         //Debug.Log("calling from: " + comingFrom + ", to " + callingTo);
         checkingIncoming = true;
 
