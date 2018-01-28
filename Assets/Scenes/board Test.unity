@@ -1366,6 +1366,11 @@ Prefab:
       propertyPath: gameCanvas
       value: 
       objectReference: {fileID: 612176684}
+    - target: {fileID: 82606884245652562, guid: 146e1a0cf19c04a6a910ddec8b718fe9,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 146e1a0cf19c04a6a910ddec8b718fe9, type: 2}
   m_IsPrefabParent: 0
