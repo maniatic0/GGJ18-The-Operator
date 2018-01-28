@@ -1444,6 +1444,11 @@ Prefab:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114424657374212974, guid: 146e1a0cf19c04a6a910ddec8b718fe9,
+        type: 2}
+      propertyPath: fade_in_time
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 146e1a0cf19c04a6a910ddec8b718fe9, type: 2}
   m_IsPrefabParent: 0
@@ -5031,6 +5036,27 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114070696644316566, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: eadde636de8271d4b97d11eec1dd687f,
+        type: 3}
+    - target: {fileID: 114979578246530642, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.6985294
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979578246530642, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.6985294
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979578246530642, guid: dcb7e1b9181ef45bd9dfe91efce153a0,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.6985294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcb7e1b9181ef45bd9dfe91efce153a0, type: 2}
