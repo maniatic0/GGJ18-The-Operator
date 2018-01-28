@@ -47,6 +47,8 @@ public class CallScript : MonoBehaviour
     //END TEST
     public GameObject end_object;
 
+    private bool firstCall = true;
+
 
 
     public void Start()
@@ -56,6 +58,15 @@ public class CallScript : MonoBehaviour
         callTime = callTimeStart;
         waitTime = waitTimeStart;
         ringSound = this.GetComponent<AudioSource>();
+
+        if (firstCall)
+        {
+            myText = " Welcome to your first day! In front of you is the switch board, where you direct the calls from!";
+            startTyping();
+            conversationText.text = "";
+            
+
+        }
     }
 
     public void Update()
@@ -183,7 +194,7 @@ public class CallScript : MonoBehaviour
 
     public void ActivateCall()
     {
-
+   
 
         activeCall = true;
         answerButton.interactable = false;
@@ -203,8 +214,8 @@ public class CallScript : MonoBehaviour
 
                 comingFrom = 6;
                 callingTo = 9;
-                intro = " Man: Can you put me through to my wife she is in - district 9?";
-                converstaion = " Man: I will be home late, don’t wait up!\nWife: Don’t bother coming home at all!";
+                intro = " MAN: Can you put me through to my wife she is in - district 9?";
+                converstaion = " MAN: I will be home late, don’t wait up!\nLADY: Don’t bother coming home at all!";
                 consequences[0] = 0;
                 consequences[1] = 1;
                 consequences[2] = -1;
@@ -214,8 +225,8 @@ public class CallScript : MonoBehaviour
 
                 comingFrom = 8;
                 callingTo = 10;
-                intro = " Rebel: Can you put me through to district 10, fast!\n";
-                converstaion = " Rebel: Eagle here! We need to protect ourselves with fireworks. Go get it from David, he has the delivery ready!\nRebel 2: understood eagle!";
+                intro = " REBEL: Can you put me through to district 10, fast!\n";
+                converstaion = " REBEL: Eagle here! We need to protect ourselves with fireworks. Go get it from David, he has the delivery ready!\nANOTHER REBEL: understood eagle!";
                 consequences[0] = -4;
                 consequences[1] = 4;
                 consequences[2] = 2;
@@ -225,8 +236,8 @@ public class CallScript : MonoBehaviour
 
                 comingFrom = 9;
                 callingTo = 14;
-                intro = " Government official: Put me on with the president! \n";
-                converstaion = " Government official: Mr. President, I have very bad news sir. People are getting ready for a big march against you. What do you want us to do?\nDictator: Activate Plan “sipping saucer”. I want the army and the national guard on the street.I want them dispersed right away!Those traitors will not get close to us.Tell them to use as much force as required and to get the reporters away.";
+                intro = " GOVERNMENT OFFICIAL: Put me on with the president! \n";
+                converstaion = " GOVERNMENT OFFICIAL: Mr. President, I have very bad news sir. People are getting ready for a big march against you. What do you want us to do?\nPRECIDENT: Activate Plan “sipping saucer”. I want the army and the national guard on the street.I want them dispersed right away!Those traitors will not get close to us.Tell them to use as much force as required and to get the reporters away.";
                 consequences[0] = 3;
                 consequences[1] = 3;
                 consequences[2] = -2;
@@ -236,30 +247,30 @@ public class CallScript : MonoBehaviour
 
                 comingFrom = 15;
                 callingTo = 6;
-                intro = " Rebel: I wanna link to district 1, please. \n";
-                converstaion = " Rebel: Hey everybody there? Listen. We will mark all the walls on king street and the main boulevard. I want the whole street full with “No more”, “Freedom”, “Democracy Now!”, “Murderers!” and “SOS” slogans!. We meet at midnight. Not a single step back!";
+                intro = " REBEL: I wanna link to district 1, please. \n";
+                converstaion = " REBEL: Hey everybody there? Listen. We will mark all the walls on king street and the main boulevard. I want the whole street full with “No more”, “Freedom”, “Democracy Now!”, “Murderers!” and “SOS” slogans!. We meet at midnight. Not a single step back!";
                 consequences[0] = -4;
                 consequences[1] = 4;
                 consequences[2] = -3;
                 break;
 
             case 2:
-
+                firstCall = false;
                 comingFrom = 12;
                 callingTo = 9;
-                intro = " Mafia Henchman: Put me through to the 9th district - NOW! \n";
-                converstaion = " Mafia henchman: Boss, the target has been silenced\nBoss: Good job, be ready for your next assignment\n";
+                intro = " MAFIA HENCHMAN: Put me through to the 9th district - NOW! \n";
+                converstaion = " MAFIA HENCHMAN: Boss, the target has been silenced\nBOS: Good job, be ready for your next assignment\n";
                 consequences[0] = 4;
                 consequences[1] = 3;
                 consequences[2] = -3;
                 break;
 
             case 1:
-
+                firstCall = true;
                 comingFrom = 17;
                 callingTo = 5;
-                intro = " Mom: Hello, can you put me through to my son in the fifth district?\n";
-                converstaion = " Mom: Hello son, this is mama. How’ve you been? Are you going to pick up your sister today?\nSon: Everything good here. Yes! I will! Stop breathing down my neck, mother *sigh * \n";
+                intro = " MOM: Hello, can you put me through to my son in the fifth district?\n \nGUIDE: What did you think about that call? Don’t you think the mom sounded suspicious? Should we let the rebels listening in on this call? Or the government? Or maybe you should just link the call directly ? Move The red plug to the plughole, with the 'dictator' or 'rebel' label on top of it, depending on who you want listening to your call. Lastly, direct the other yellow plug to the light up hole to direct the call to the son.";
+                converstaion = " MOM: Hello son, this is mama. How’ve you been? Are you going to pick up your sister today?\nSON: Everything good here. Yes! I will! Stop breathing down my neck, mother *sigh * \n";
                 consequences[0] = 0;
                 consequences[1] = 0;
                 consequences[2] = -2;
@@ -273,6 +284,15 @@ public class CallScript : MonoBehaviour
 
         ringSound.enabled = true;
         //Debug.Log("calling from: " + comingFrom + ", to " + callingTo);
+
+        if (firstCall)
+        {
+            myText = " A call is incoming.Take one of the yellow plugs and plug it into the hole under the ligthning bulb";
+            startTyping();
+            conversationText.text = "";
+
+        } 
+
         checkingIncoming = true;
 
     }
@@ -281,6 +301,16 @@ public class CallScript : MonoBehaviour
     {
         myText = "";
         conversationText.text = "";
+
+        if (firstCall)
+        {
+            myText = " Good job, you’ve directed your first call! But remember that your actions have consequences...";
+            startTyping();
+            conversationText.text = "";
+            Debug.Log("welcome text is on");
+
+        }
+
 
     }
 
