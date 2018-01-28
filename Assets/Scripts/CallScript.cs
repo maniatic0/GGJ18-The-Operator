@@ -139,7 +139,7 @@ public class CallScript : MonoBehaviour
 
 
         ringSound.enabled = false;
-        if (plug1.ConnectId == callingTo)
+        if (plug1.ConnectId == callingTo && plug2.ConnectId == comingFrom)
         {
             myText = converstaion;
             startTyping();
@@ -149,7 +149,7 @@ public class CallScript : MonoBehaviour
             callActive = true;
             callTime = callTimeStart;
         }
-        else if (plug2.ConnectId == callingTo)
+        else if (plug2.ConnectId == callingTo && plug1.ConnectId == comingFrom)
         {
             myText = converstaion;
             startTyping();
@@ -269,7 +269,7 @@ public class CallScript : MonoBehaviour
                 firstCall = true;
                 comingFrom = 17;
                 callingTo = 5;
-                intro = " MOM: Hello, can you put me through to my son in the fifth district?\n \nGUIDE: What did you think about that call? Don’t you think the mom sounded suspicious? Should we let the rebels listening in on this call? Or the government? Or maybe you should just link the call directly ? Move The red plug to the plughole, with the 'dictator' or 'rebel' label on top of it, depending on who you want listening to your call. Lastly, direct the other yellow plug to the light up hole to direct the call to the son.";
+                intro = " MOM: Hello, can you put me through to my son in the fifth district?\n \nGUIDE: What did you think about that call? Don’t you think the mom sounded suspicious? Should we let the rebels listening in on this call? Or the government? Or maybe you should just link the call directly ? Move The red plug to the plughole, with the 'dictator' or 'rebel' label on top of it, depending on who you want listening to your call. Lastly, direct the other yellow plug to the light up hole to direct the call to the son. Remember you can always choose if you want the rebels or the government to be listening";
                 converstaion = " MOM: Hello son, this is mama. How’ve you been? Are you going to pick up your sister today?\nSON: Everything good here. Yes! I will! Stop breathing down my neck, mother *sigh * \n";
                 consequences[0] = 0;
                 consequences[1] = 0;
